@@ -1,0 +1,30 @@
+h1
+  text-align: center
+  text-decoration: underline
+.block
+  margin: 1rem 0
+mat-card
+  transition: 0.4s
+  &:hover
+    transform: scale(1.05)
+
+.title
+  text-align: center
+  border-radius: 5px
+  background: linear-gradient(270deg, cyan, blue, coral)
+  border: 1px solid
+  animation-name: title
+  animation-duration: 3s
+  animation-iteration-count: infinite
+  background-size: 400% 400%
+
+@keyframes title
+  0%
+    background-position: 0 45%
+  50%
+    background-position: 100% 56%
+  100%
+    background-position: 0 45%
+a
+  text-decoration: none
+  color: black

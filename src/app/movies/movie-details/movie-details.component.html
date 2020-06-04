@@ -1,0 +1,72 @@
+<div>
+  <div></div>
+  <div class="content">
+    <div>
+      <button mat-raised-button color="primary" [routerLink]="'/'"><mat-icon>arrow_back</mat-icon> Back to List</button>
+    </div>
+    <h2 style="text-align: center; padding: 0.5rem; border: cornflowerblue 1px dashed; margin: 2rem 0;">Movie Details</h2>
+    <div>
+      <mat-card>
+        <div>
+          <h1 style="text-align: center">{{movie.name}}</h1>
+        </div>
+        <div fxLayout="column" fxLayout.gt-sm="row">
+          <div class="block" fxFlex="100" fxFlex.gt-sm="20">
+            <div style="justify-content: center; display: flex;">
+              <img src="assets/images/movie-covers/{{movie.img}}" alt="">
+            </div>
+          </div>
+          <div class="block" fxFlex="100" fxFlex.gt-sm="80">
+            <div>
+              <h3><b>Genre:</b> {{movie.genres.toString()}}</h3>
+            </div>
+            <div>
+              <h3><b>Key:</b> {{movie.key}}</h3>
+            </div>
+            <div>
+              <h3><b>Description:</b> {{movie.description}}</h3>
+            </div>
+            <div>
+              <h3><b>Rate:</b> {{movie.rate}}</h3>
+            </div>
+            <div>
+              <h3><b>Length:</b> {{movie.length}}</h3>
+            </div>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+    <div>
+      <h2 style="text-align: center; padding: 0.5rem; border: coral 1px dashed; margin: 2rem 0;">Same Genres</h2>
+      <div  fxLayout.gt-sm="row" fxLayout="column">
+        <div fxFlex="100" fxFlex.gt-sm="25" *ngFor="let m of showedSameMovies">
+          <mat-card [routerLink]="'/movie/'+ m.id" fxFlex="100" style="height: 480px;">
+            <div>
+              <div>
+                <h3 class="title" style="">{{m.name}}</h3>
+              </div>
+              <div>
+                <div>
+                  <div style="text-align: center">
+                    <img src="assets/images/movie-covers/{{m.img}}" alt="">
+                  </div>
+                  <div>
+                    <div style="">
+                      <h2 style="display: inline;">Rating: {{m.rate}}</h2>
+                    </div>
+                    <h3>Duration: {{m.length}}</h3>
+                  </div>
+                </div>
+                <div style="margin-top: 1rem; font-size: 18px"> Genre:
+                  <div style="display: inline; margin-right: 0.4rem;" *ngFor="let genre of m.genres">
+                    <a href="">{{genre}}</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="content">
+
+  <div fxLayout="column" fxLayout.gt-sm="row">
+    <div fxFlex="100" fxLayout="50">
+      <mat-form-field>
+        <input [(ngModel)]="name" matInput (keyup)="applyFilter()" placeholder="Name">
+      </mat-form-field>
+    </div>
+    <div fxFlex="100" fxLayout="50">
+      <mat-form-field>
+        <mat-label>Filter by Genre:</mat-label>
+        <mat-select [(ngModel)]="GenreSelect">
+          <mat-option (click)="getByGenres()" *ngFor="let genre of genres;" [value]="genre">
+            {{genre}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div>
+    <div style="width: 100%; " fxLayout.gt-sm="row" fxLayout="column" *ngFor="let movieColumn of movieList; let i = index">
+        <div style="width: 100%;" *ngFor="let movie of movieColumn; let i = index">
+          <div style=" width: 100%; float: left;">
+            <mat-card [routerLink]="'/movie/'+ movie.id" fxFlex="100" style="height: 480px;">
+              <div>
+                <div>
+                  <h3 class="title" style="">{{movie.name}}</h3>
+                </div>
+                <div>
+                  <div>
+                    <div style="text-align: center">
+                      <img src="assets/images/movie-covers/{{movie.img}}" alt="">
+                    </div>
+                    <div>
+                      <div style="">
+                        <h2 style="display: inline;">Rating: {{movie.rate}}</h2>
+                      </div>
+                      <h3>Duration: {{movie.length}}</h3>
+                    </div>
+                  </div>
+                  <div style="margin-top: 1rem; font-size: 18px"> Genre:
+                    <div style="display: inline; margin-right: 0.4rem;" *ngFor="let genre of movie.genres">
+                      <a href="">{{genre}}</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </mat-card>
+          </div>
+        </div>
+    </div>
+
+    <div style="clear: both"></div>
+  </div>
+</div>
