@@ -1,3 +1,7 @@
+Instruction:
+To run the application:
+1) npm i
+2) npm start or ng serve
 # MovieApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.3.
